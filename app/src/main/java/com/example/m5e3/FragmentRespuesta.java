@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.m5e3.databinding.FragmentRespuestaBinding;
+import com.example.m5e3.databinding.FragmentTriviaBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentRespuesta extends Fragment {
+
+    private FragmentRespuestaBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +58,8 @@ public class FragmentRespuesta extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            boolean resultCorrect = getArguments().getBoolean("Respuesta");
+            Toast.makeText(getContext(), "Respuesta Correcta" + resultCorrect, Toast.LENGTH_SHORT).show();
         }
     }
 

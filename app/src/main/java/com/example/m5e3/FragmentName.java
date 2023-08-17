@@ -3,10 +3,13 @@ package com.example.m5e3;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.m5e3.databinding.FragmentNameBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentName extends Fragment {
+
+    private FragmentNameBinding binding;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +64,24 @@ public class FragmentName extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        binding = FragmentNameBinding.inflate(getLayoutInflater(), container, false);
+        binding.btnComenzar.setOnClickListener(view -> {
+
+            // capturar el nombre que ingresara
+            String nombre = binding.editTextName.getText().toString();
+            // es una cajita donde se ingresan cosas
+            Bundle bundle = new Bundle();
+            //
+            bundle.putString("nombre", nombre);
+            // a donde quiero ir
+                    Navigation.findNavController(getView()).navigate(R.id.action_fragmentName_to_fragmentTrivia, bundle);
+
+
+                }
+                );
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_name, container, false);
+        return binding.getRoot();
     }
 }

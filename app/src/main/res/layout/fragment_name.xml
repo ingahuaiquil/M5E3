@@ -28,7 +28,6 @@
         android:ems="10"
         android:hint="Escribe tu nombre"
         android:inputType="text"
-        android:text="Escribe tu nombre"
         app:layout_constraintBottom_toTopOf="@+id/btnComenzar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
